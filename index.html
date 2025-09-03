@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0" />
+  <title>Interactive Web Pages with JavaScript</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="container header">
+    <h1>Interactive Web Pages with JavaScript</h1>
+
+    <!-- Dark mode toggle -->
+    <button id="themeToggle" class="btn" aria-pressed="false">
+      🌙 Enable Dark Mode
+    </button>
+  </header>
+
+  <main class="container">
+    <!-- Part 1 & 2: Interactive Elements -->
+    <section aria-labelledby="interact-title" class="card">
+      <h2 id="interact-title">Interactive Elements</h2>
+
+      <!-- Counter -->
+      <div class="counter">
+        <h3>Counter Game</h3>
+        <p>
+          Use the buttons or your keyboard:
+          <kbd>+</kbd>/<kbd>=</kbd> to increment,
+          <kbd>-</kbd> to decrement,
+          <kbd>0</kbd> to reset.
+        </p>
+        <div class="counter-display" id="count" aria-live="polite">0</div>
+        <div class="counter-actions">
+          <button class="btn" id="decrement">-1</button>
+          <button class="btn" id="increment">+1</button>
+          <button class="btn btn-secondary" id="reset">Reset</button>
+        </div>
+      </div>
+
+      <!-- FAQ Accordion -->
+      <div class="faq">
+        <h3>FAQ (Collapsible)</h3>
+
+        <div class="accordion">
+          <button class="accordion-trigger" aria-expanded="false" aria-controls="a1">
+            What is an event listener?
+          </button>
+          <div id="a1" class="accordion-panel" hidden>
+            An event listener “listens” for a user action (click, input, etc.)
+            and runs a function in response.
+          </div>
+        </div>
+
+        <div class="accordion">
+          <button class="accordion-trigger" aria-expanded="false" aria-controls="a2">
+            How do I change button text dynamically?
+          </button>
+          <div id="a2" class="accordion-panel" hidden>
+            Use <code>button.textContent</code> for plain text. (Avoid
+            <code>innerHTML</code> unless you need HTML.)
+          </div>
+        </div>
+
+        <div class="accordion">
+          <button class="accordion-trigger" aria-expanded="false" aria-controls="a3">
+            Do I need a framework for this assignment?
+          </button>
+          <div id="a3" class="accordion-panel" hidden>
+            Nope. Vanilla JavaScript is perfect here.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Part 3: Form Validation -->
+    <section aria-labelledby="form-title" class="card">
+      <h2 id="form-title">Sign Up Form (Custom Validation)</h2>
+      <form id="signupForm" novalidate>
+        <div class="field">
+          <label for="name">Full Name</label>
+          <input id="name" name="name" type="text" autocomplete="name" required />
+          <p class="hint">At least 2 characters.</p>
+          <p class="error" id="nameError" role="alert" aria-live="polite"></p>
+        </div>
+
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" autocomplete="email" required />
+          <p class="hint">Use a valid email format (e.g., name@example.com).</p>
+          <p class="error" id="emailError" role="alert" aria-live="polite"></p>
+        </div>
+
+        <div class="field">
+          <label for="password">Password</label>
+          <input id="password" name="password" type="password" required />
+          <p class="hint">Min 8 chars, with upper, lower, number, special.</p>
+          <p class="error" id="passwordError" role="alert" aria-live="polite"></p>
+        </div>
+
+        <div class="field">
+          <label for="confirm">Confirm Password</label>
+          <input id="confirm" name="confirm" type="password" required />
+          <p class="error" id="confirmError" role="alert" aria-live="polite"></p>
+        </div>
+
+        <div class="field checkbox">
+          <input id="terms" name="terms" type="checkbox" />
+          <label for="terms">I agree to the terms</label>
+          <p class="error" id="termsError" role="alert" aria-live="polite"></p>
+        </div>
+
+        <button class="btn btn-primary" type="submit">Create Account</button>
+        <p id="formStatus" class="success" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="container footer">
+    <small>Built with vanilla JS events, DOM manipulation, and validation.</small>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
